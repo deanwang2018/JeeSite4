@@ -15,15 +15,17 @@ pipeline {
     stages{
         stage('同步源码') {
             steps {
-                git url:'git@gitee.com:11547299/jeesite4.git', branch:"$params.branch"
+                git url:'git@github.com:deanwang2018/JeeSite4.git', branch:"$params.branch"
             }
         }
 
         stage('设定配置文件'){
             steps{
                 sh '''
-                    . ~/.bash_profile
-            
+                    export mysql_ip=127.0.0.1
+                    export mysql_port=3306
+                    export mysql_user=root
+                    export mysql_pwd=passw0rd
                     export os_type=`uname`
                     cd ${WORKSPACE}/web/bin/docker
                     if [[ "${os_type}" == "Darwin" ]]; then
