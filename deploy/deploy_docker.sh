@@ -8,6 +8,10 @@
 #export PROJ_PATH=project path
 export docker_image_name=jeesite4
 export docker_container_name=iJeesite4
+export mysql_ip=127.0.0.1
+export mysql_port=3306
+export mysql_user=root
+export mysql_pwd=passw0rd
 
 ## 检查系统类型
 export os_type=`uname`
